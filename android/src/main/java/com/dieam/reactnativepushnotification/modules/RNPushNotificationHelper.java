@@ -103,7 +103,6 @@ public class RNPushNotificationHelper {
             }
 
             NotificationCompat.Builder notification = new NotificationCompat.Builder(mContext)
-                    .setContentTitle(title)
                     .setTicker(bundle.getString("ticker"))
                     .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -114,7 +113,7 @@ public class RNPushNotificationHelper {
                 notification.setGroup(group);
             }
 
-            notification.setContentText(bundle.getString("message"));
+            //notification.setContentText(bundle.getString("message"));
 
             String largeIcon = bundle.getString("largeIcon");
 
@@ -236,7 +235,6 @@ public class RNPushNotificationHelper {
 
             if (bundle.containsKey("tag")) {
                 String tag = bundle.getString("tag");
-                notificationManager.notify(tag, notificationID, info);
             } else {
                 notificationManager.notify(notificationID, info);
             }
